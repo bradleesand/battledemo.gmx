@@ -67,6 +67,14 @@ if (move != 0)
 var pushed;
 pushed = max(keyboard_check_pressed(vk_enter), keyboard_check_released(vk_space), 0);
 if (pushed == 1) scr_menu();
+
+var ch_hero = 0;
+ch_hero += max(keyboard_check_pressed(vk_tab), keyboard_check_pressed(vk_right), 0);
+ch_hero -= max(keyboard_check_pressed(vk_left), 0);
+
+if (ch_hero != 0) {
+    scr_select_hero((global.selected_hero + ch_hero) % 4);
+}
 </string>
           </argument>
         </arguments>

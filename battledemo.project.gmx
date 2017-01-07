@@ -54,6 +54,12 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_menu.gml</script>
+    <script>scripts\scr_init_battle.gml</script>
+    <script>scripts\scr_draw_backgrounds.gml</script>
+    <script>scripts\scr_select_hero.gml</script>
+    <script>scripts\scr_draw_heroes.gml</script>
+    <script>scripts\scr_draw_charge_bars.gml</script>
+    <script>scripts\scr_draw_cmd_menu.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_commands_menu</font>
@@ -74,6 +80,9 @@
     <room>rooms\rm_battle_2</room>
     <room>rooms\rm_battle</room>
   </rooms>
+  <constants number="1">
+    <constant name="CURRENT_HERO">global.heroes[global.selected_hero]</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
