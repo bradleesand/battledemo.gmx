@@ -1,9 +1,14 @@
 global.current_lane = argument0;
 
-scr_draw_backgrounds(global.current_lane);
+// Update lane backgrounds
+for (var i = 0; i < instance_number(obj_lane); i++) {
+    with (instance_find(obj_lane, i)) {
+        event_user(0);
+    }
+}
 
-scr_draw_heroes(global.current_lane);
-
-scr_draw_charge_bars(global.current_lane);
-
-scr_draw_cmd_menu(global.current_lane);
+for (var i = 0; i < instance_number(obj_hero); i++) {
+    with (instance_find(obj_hero, i)) {
+        event_user(0);
+    }
+}

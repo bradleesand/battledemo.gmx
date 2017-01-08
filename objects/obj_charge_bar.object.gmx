@@ -120,7 +120,7 @@
     }
 }
 
-global.pause_charge = CURRENT_CHARGE_BAR.value == CURRENT_CHARGE_BAR.max_value;
+//global.pause_charge = CURRENT_CHARGE_BAR.value == CURRENT_CHARGE_BAR.max_value;
 </string>
           </argument>
         </arguments>
@@ -143,14 +143,14 @@ global.pause_charge = CURRENT_CHARGE_BAR.value == CURRENT_CHARGE_BAR.max_value;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if lane == global.current_lane {
+            <string>if owner.lane == global.current_lane {
     x = 10;
-    y = hero.y + 100;
+    y = owner.y + 100;
     height = 50;
     width = 200;
 } else {
     x = 250;
-    y = hero.y;
+    y = owner.y;
     height = 20;
     width = 100;
 }

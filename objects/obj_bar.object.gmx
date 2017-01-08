@@ -177,9 +177,6 @@ draw_set_colour(bg_color);
 draw_rectangle(x, y, x+width, y+height, false);
 draw_set_colour(fg_color);
 draw_rectangle(x, y, x+(width*value/max_value), y+height, false);
-
-show_debug_message(x);
-show_debug_message(y);
 </string>
           </argument>
         </arguments>

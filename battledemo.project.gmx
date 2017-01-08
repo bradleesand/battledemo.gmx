@@ -51,34 +51,25 @@
   <scripts name="scripts">
     <script>scripts\scr_menu.gml</script>
     <script>scripts\scr_init_battle.gml</script>
-    <script>scripts\scr_draw_backgrounds.gml</script>
     <script>scripts\scr_select_lane.gml</script>
-    <script>scripts\scr_draw_heroes.gml</script>
-    <script>scripts\scr_draw_charge_bars.gml</script>
-    <script>scripts\scr_draw_cmd_menu.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_commands_menu</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_dino1_orange</object>
-    <object>objects\obj_dino2_orange</object>
-    <object>objects\obj_dino1_purple</object>
-    <object>objects\obj_dino2_purple</object>
-    <object>objects\obj_dino1_green</object>
-    <object>objects\obj_dino2_green</object>
-    <object>objects\obj_dino1_red</object>
-    <object>objects\obj_dino2_red</object>
     <object>objects\obj_commands_menu</object>
     <object>objects\obj_charge_bar</object>
     <object>objects\obj_bar</object>
     <object>objects\obj_health_bar</object>
+    <object>objects\obj_hero</object>
+    <object>objects\obj_lane</object>
+    <object>objects\obj_enemy</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_battle</room>
   </rooms>
   <constants number="1">
-    <constant name="CURRENT_CHARGE_BAR">global.charge_bars[global.current_lane]</constant>
+    <constant name="CURRENT_CHARGE_BAR">global.current_lane.heroes[0].charge_bar</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
