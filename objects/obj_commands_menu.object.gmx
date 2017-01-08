@@ -53,27 +53,32 @@ mpos = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var move = 0;
-move -= max(keyboard_check_pressed(vk_up), keyboard_check_pressed(ord("W")), 0);
-move += max(keyboard_check_pressed(vk_down), keyboard_check_pressed(ord("S")), 0);
-
-if (move != 0)
-{
-    mpos += move;
-    if (mpos &lt; 0) mpos = array_length_1d(menu) - 1;
-    if (mpos &gt;= array_length_1d(menu)) mpos = 0;
+            <string>if global.charge_bars[global.current_lane].charge_value != 1 {
+    visible = false;
+} else {
+    visible = true;
+    var move = 0;
+    move -= max(keyboard_check_pressed(vk_up), keyboard_check_pressed(ord("W")), 0);
+    move += max(keyboard_check_pressed(vk_down), keyboard_check_pressed(ord("S")), 0);
+    
+    if (move != 0)
+    {
+        mpos += move;
+        if (mpos &lt; 0) mpos = array_length_1d(menu) - 1;
+        if (mpos &gt;= array_length_1d(menu)) mpos = 0;
+    }
+    
+    var pushed;
+    pushed = max(keyboard_check_pressed(vk_enter), keyboard_check_released(vk_space), 0);
+    if (pushed == 1) scr_menu();
 }
-
-var pushed;
-pushed = max(keyboard_check_pressed(vk_enter), keyboard_check_released(vk_space), 0);
-if (pushed == 1) scr_menu();
-
+    
 var ch_hero = 0;
 ch_hero += max(keyboard_check_pressed(vk_tab), keyboard_check_pressed(vk_right), 0);
 ch_hero -= max(keyboard_check_pressed(vk_left), 0);
 
 if (ch_hero != 0) {
-    scr_select_hero((global.selected_hero + ch_hero) % 4);
+    scr_select_lane((global.current_lane + ch_hero) % 4);
 }
 </string>
           </argument>

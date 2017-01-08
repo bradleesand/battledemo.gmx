@@ -56,7 +56,7 @@
     <script>scripts\scr_menu.gml</script>
     <script>scripts\scr_init_battle.gml</script>
     <script>scripts\scr_draw_backgrounds.gml</script>
-    <script>scripts\scr_select_hero.gml</script>
+    <script>scripts\scr_select_lane.gml</script>
     <script>scripts\scr_draw_heroes.gml</script>
     <script>scripts\scr_draw_charge_bars.gml</script>
     <script>scripts\scr_draw_cmd_menu.gml</script>
