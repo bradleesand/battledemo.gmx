@@ -53,7 +53,7 @@ mpos = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.charge_bars[global.current_lane].charge_value != 1 {
+            <string>if CURRENT_CHARGE_BAR.value != 1 {
     visible = false;
 } else {
     visible = true;
@@ -73,12 +73,12 @@ mpos = 0;
     if (pushed == 1) scr_menu();
 }
     
-var ch_hero = 0;
-ch_hero += max(keyboard_check_pressed(vk_tab), keyboard_check_pressed(vk_right), 0);
-ch_hero -= max(keyboard_check_pressed(vk_left), 0);
+var ch_lane = 0;
+ch_lane += max(keyboard_check_pressed(vk_tab), keyboard_check_pressed(vk_right), 0);
+ch_lane -= max(keyboard_check_pressed(vk_left), 0);
 
-if (ch_hero != 0) {
-    scr_select_lane((global.current_lane + ch_hero) % 4);
+if (ch_lane != 0) {
+    scr_select_lane((global.current_lane + ch_lane) % 4);
 }
 </string>
           </argument>

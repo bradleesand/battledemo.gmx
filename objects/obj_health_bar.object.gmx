@@ -39,89 +39,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>value</string>
+            <string>fg_color</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>max_value</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>100</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>delta</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>random(1)</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if not global.pause_charge {
-    value += delta;
-    if value &gt;= max_value {
-        value = max_value;
-    }
-}
-
-global.pause_charge = CURRENT_CHARGE_BAR.value == CURRENT_CHARGE_BAR.max_value;
-</string>
+            <string>c_red</string>
           </argument>
         </arguments>
       </action>
@@ -145,11 +67,11 @@ global.pause_charge = CURRENT_CHARGE_BAR.value == CURRENT_CHARGE_BAR.max_value;
             <kind>1</kind>
             <string>if lane == global.current_lane {
     x = 10;
-    y = hero.y + 100;
+    y = hero.y + 160;
     height = 50;
     width = 200;
 } else {
-    x = 250;
+    x = 370;
     y = hero.y;
     height = 20;
     width = 100;

@@ -5,24 +5,10 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_bar</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>604</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_inherited</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
       <action>
         <libid>1</libid>
         <id>611</id>
@@ -43,7 +29,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>0</string>
+            <string>50</string>
           </argument>
         </arguments>
       </action>
@@ -87,16 +73,88 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>delta</string>
+            <string>width</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>random(1)</string>
+            <string>100</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>height</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>20</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>bg_color</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>c_white</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>fg_color</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>c_aqua</string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -113,47 +171,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if not global.pause_charge {
-    value += delta;
-    if value &gt;= max_value {
-        value = max_value;
-    }
-}
+            <string>draw_set_colour(c_black);
+draw_rectangle(x-1, y-1, x+width+1, y+height+1, true);
+draw_set_colour(bg_color);
+draw_rectangle(x, y, x+width, y+height, false);
+draw_set_colour(fg_color);
+draw_rectangle(x, y, x+(width*value/max_value), y+height, false);
 
-global.pause_charge = CURRENT_CHARGE_BAR.value == CURRENT_CHARGE_BAR.max_value;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="76">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if lane == global.current_lane {
-    x = 10;
-    y = hero.y + 100;
-    height = 50;
-    width = 200;
-} else {
-    x = 250;
-    y = hero.y;
-    height = 20;
-    width = 100;
-}
+show_debug_message(x);
+show_debug_message(y);
 </string>
           </argument>
         </arguments>

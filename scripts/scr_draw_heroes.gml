@@ -1,7 +1,7 @@
 for (var i = 0; i < 4; i++) {
     var hero = global.heroes[i];
     
-    hero.y = background_y[i] + background_height[i] / 2;
+    hero.y = background_y[i] + floor(background_height[i] / 2);
     
     if (i == argument0) {
         hero.image_xscale = -0.5;

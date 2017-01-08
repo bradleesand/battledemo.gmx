@@ -36,10 +36,6 @@
       <sprite>sprites\spr_commands_menu</sprite>
       <sprite>sprites\spr_menu_selector</sprite>
     </sprites>
-    <sprites name="charge_bar">
-      <sprite>sprites\spr_charge_bar</sprite>
-      <sprite>sprites\spr_charge_bar_border</sprite>
-    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_red</background>
@@ -75,13 +71,14 @@
     <object>objects\obj_dino2_red</object>
     <object>objects\obj_commands_menu</object>
     <object>objects\obj_charge_bar</object>
+    <object>objects\obj_bar</object>
+    <object>objects\obj_health_bar</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_battle_2</room>
     <room>rooms\rm_battle</room>
   </rooms>
   <constants number="1">
-    <constant name="CURRENT_HERO">global.heroes[global.selected_hero]</constant>
+    <constant name="CURRENT_CHARGE_BAR">global.charge_bars[global.current_lane]</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
