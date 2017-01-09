@@ -1,3 +1,4 @@
+randomize();
 global.pause_charge = false;
 
 var hero_sprites;
