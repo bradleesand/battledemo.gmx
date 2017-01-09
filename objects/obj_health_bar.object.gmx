@@ -94,7 +94,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>value = owner.health;
+            <string>value = owner.health_value;
 </string>
           </argument>
         </arguments>
