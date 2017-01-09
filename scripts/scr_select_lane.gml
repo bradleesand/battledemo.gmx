@@ -12,3 +12,9 @@ for (var i = 0; i < instance_number(obj_hero); i++) {
         event_user(0);
     }
 }
+
+for (var i = 0; i < instance_number(obj_enemy); i++) {
+    with (instance_find(obj_enemy, i)) {
+        event_user(0);
+    }
+}

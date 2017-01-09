@@ -119,9 +119,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>show_debug_message("obj_lane_User Defined 0: " + string(index));
-
-if global.current_lane == self {
+            <string>if global.current_lane == self {
     background_index[index] = bg_main;
 } else {
     background_index[index] = bg_mini;
@@ -129,10 +127,8 @@ if global.current_lane == self {
 
 background_x[index] = 0;
 if index &gt; 0 {
-    background_y[index] = background_height[index - 1];
+    background_y[index] = background_y[index-1] + background_height[index-1];
 }
-
-show_debug_message("finish");
 </string>
           </argument>
         </arguments>

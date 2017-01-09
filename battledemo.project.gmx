@@ -62,8 +62,9 @@
     <object>objects\obj_bar</object>
     <object>objects\obj_health_bar</object>
     <object>objects\obj_hero</object>
-    <object>objects\obj_lane</object>
     <object>objects\obj_enemy</object>
+    <object>objects\obj_lane</object>
+    <object>objects\obj_character</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_battle</room>

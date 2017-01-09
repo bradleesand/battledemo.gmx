@@ -48,7 +48,7 @@
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="76">
+    <event eventtype="7" enumb="10">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -66,16 +66,35 @@
           <argument>
             <kind>1</kind>
             <string>if owner.lane == global.current_lane {
-    x = 10;
-    y = owner.y + 160;
     height = 50;
     width = 200;
 } else {
-    x = 370;
-    y = owner.y;
     height = 20;
     width = 100;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="76">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>value = owner.health;
 </string>
           </argument>
         </arguments>

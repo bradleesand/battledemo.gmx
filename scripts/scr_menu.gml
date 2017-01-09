@@ -2,8 +2,9 @@ switch (mpos)
 {
     case 0:
     // attack
-        if (global.charge_bars[global.current_lane].charge_value == 1)
-            global.charge_bars[global.current_lane].charge_value = 0;
+        if (CURRENT_CHARGE_BAR.value == CURRENT_CHARGE_BAR.max_value) {
+            CURRENT_CHARGE_BAR.value = 0;
+        }
     break;
     case 1:
     // abilities
