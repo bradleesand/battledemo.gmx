@@ -53,7 +53,7 @@ mpos = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if CURRENT_CHARGE_BAR.value &lt; CURRENT_CHARGE_BAR.max_value {
+            <string>if global.current_hero == noone or global.current_hero.charge_bar.value &lt; global.current_hero.charge_bar.max_value {
     visible = false;
 } else {
     visible = true;
@@ -61,8 +61,7 @@ mpos = 0;
     move -= max(keyboard_check_pressed(vk_up), keyboard_check_pressed(ord("W")), 0);
     move += max(keyboard_check_pressed(vk_down), keyboard_check_pressed(ord("S")), 0);
     
-    if (move != 0)
-    {
+    if move != 0 {
         mpos += move;
         if (mpos &lt; 0) mpos = array_length_1d(menu) - 1;
         if (mpos &gt;= array_length_1d(menu)) mpos = 0;
@@ -70,18 +69,53 @@ mpos = 0;
     
     var pushed;
     pushed = max(keyboard_check_pressed(vk_enter), keyboard_check_released(vk_space), 0);
-    if (pushed == 1) scr_menu();
+    if pushed != 0 {
+        switch mpos {
+            case 0:
+            // attack
+                var target = ds_list_find_value(global.current_lane.enemies, 0);
+                if global.current_hero.charge_bar.value == global.current_hero.charge_bar.max_value {
+                    global.current_hero.charge_bar.value = 0;
+                    target.health_value -= global.current_hero.damage;
+                    if target.health_value &lt; 0 {
+                        target.health_value = 0;
+                    }
+                }
+            break;
+            case 1:
+            // abilities
+            break;
+            case 2:
+            // items
+            break;
+        }
+    }
 }
     
 var ch_lane = 0;
-ch_lane += max(keyboard_check_pressed(vk_tab), keyboard_check_pressed(vk_right), 0);
-ch_lane -= max(keyboard_check_pressed(vk_left), 0);
+ch_lane += max(keyboard_check_pressed(vk_tab), keyboard_check_pressed(vk_right), keyboard_check_pressed(ord("E")), 0);
+ch_lane -= max(keyboard_check_pressed(vk_left), keyboard_check_pressed(ord("Q")), 0);
 
 if (ch_lane != 0) {
-    scr_select_lane(
-        instance_find(obj_lane,
-                      (global.current_lane.index + ch_lane) %
-                        instance_number(obj_lane)));
+    var new_lane_index = (global.current_lane.index + ch_lane) % instance_number(obj_lane);
+    var new_lane = instance_find(obj_lane, new_lane_index);
+    var new_hero;
+    if ds_list_empty(new_lane.heroes) {
+        new_hero = new_lane; // scr_select_hero will detect that a lane was passed
+    } else {
+        new_hero = ds_list_find_value(new_lane.heroes, 0);
+    }
+    scr_select_hero(new_hero);
+}
+
+var ch_hero = 0;
+ch_hero += max(keyboard_check_pressed(ord("D")), 0);
+ch_hero -= max(keyboard_check_pressed(ord("A")), 0);
+
+if ch_hero != 0 and ds_list_size(global.current_lane.heroes) &gt; 1 {
+    var current_hero_index = ds_list_find_index(global.current_lane.heroes, global.current_hero);
+    var next_hero_index = (current_hero_index + 1) % ds_list_size(global.current_lane.heroes);
+    scr_select_hero(ds_list_find_value(global.current_lane.heroes, next_hero_index));
 }
 </string>
           </argument>

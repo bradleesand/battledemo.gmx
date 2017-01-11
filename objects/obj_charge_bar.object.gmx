@@ -114,13 +114,20 @@
           <argument>
             <kind>1</kind>
             <string>if not global.pause_charge {
-    value += delta;
-    if value &gt;= max_value {
-        value = max_value;
+    if value &lt; max_value {
+        value += delta;
+        if value &gt;= max_value {
+            value = max_value;
+            with (owner) {
+                if object_index == obj_hero {
+                    scr_select_hero(self);
+                }
+            }
+        }
     }
 }
 
-global.pause_charge = CURRENT_CHARGE_BAR.value == CURRENT_CHARGE_BAR.max_value;
+global.pause_charge = global.current_hero != noone and global.current_hero.charge_bar.value == global.current_hero.charge_bar.max_value;
 </string>
           </argument>
         </arguments>

@@ -49,9 +49,9 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_menu.gml</script>
     <script>scripts\scr_init_battle.gml</script>
     <script>scripts\scr_select_lane.gml</script>
+    <script>scripts\scr_select_hero.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_commands_menu</font>
@@ -69,11 +69,6 @@
   <rooms name="rooms">
     <room>rooms\rm_battle</room>
   </rooms>
-  <constants number="3">
-    <constant name="CURRENT_CHARGE_BAR">global.current_lane.heroes[0].charge_bar</constant>
-    <constant name="CURRENT_HERO">global.current_lane.heroes[0]</constant>
-    <constant name="CURRENT_ENEMY">global.current_lane.enemies[0]</constant>
-  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

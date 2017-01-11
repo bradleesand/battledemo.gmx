@@ -134,9 +134,12 @@
     }
     if charge_value == max_charge {
         charge_value = 0;
-        lane.heroes[0].health_value -= damage;
-        if lane.heroes[0].health_value &lt; 0 {
-            lane.heroes[0].health_value = 0;
+        if not ds_list_empty(lane.heroes) {
+            var target = ds_list_find_value(lane.heroes, 0);
+            target.health_value -= damage;
+            if target.health_value &lt; 0 {
+                target.health_value = 0;
+            }
         }
     }
 }

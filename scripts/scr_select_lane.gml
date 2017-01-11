@@ -1,3 +1,7 @@
+if global.current_lane == argument0 {
+    return false;
+}
+
 global.current_lane = argument0;
 
 // Update lane backgrounds
@@ -18,3 +22,5 @@ for (var i = 0; i < instance_number(obj_enemy); i++) {
         event_user(0);
     }
 }
+
+return true;
