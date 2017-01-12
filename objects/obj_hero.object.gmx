@@ -45,35 +45,27 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with (health_bar) {
+            <string>var index = ds_list_find_index(lane.heroes, self);
+var scale;
+
+if (lane == global.current_lane) {
+    scale = 0.5;
+} else {
+    scale = 0.25;
+}
+
+var scaled_width = sprite_get_width(sprite_index) * scale;
+
+image_xscale = scale;
+image_yscale = scale;
+x = scaled_width * index;
+y = background_y[lane.index];
+
+with (health_bar) {
     event_user(0);
 }
 with (charge_bar) {
     event_user(0);
-}
-
-y = background_y[lane.index];
-
-if (lane == global.current_lane) {
-    image_xscale = -0.5;
-    image_yscale = 0.5;
-    
-    x = sprite_get_width(sprite_index) * 0.5;
-    
-    charge_bar.x = 10;
-    charge_bar.y = y + floor(sprite_get_height(sprite_index) * 0.5) + 10;
-    health_bar.x = 10;
-    health_bar.y = charge_bar.y + charge_bar.height + 10;
-} else {
-    image_xscale = -0.25;
-    image_yscale = 0.25;
-    
-    x = sprite_get_width(sprite_index) * 0.25;
-    
-    charge_bar.x = x + 10;
-    charge_bar.y = y + 10;
-    health_bar.x = charge_bar.x + charge_bar.width + 10;
-    health_bar.y = y + 10;
 }
 </string>
           </argument>

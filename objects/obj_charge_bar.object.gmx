@@ -118,10 +118,8 @@
         value += delta;
         if value &gt;= max_value {
             value = max_value;
-            with (owner) {
-                if object_index == obj_hero {
-                    scr_select_hero(self);
-                }
+            if owner.object_index == obj_hero {
+                scr_select_hero(owner);
             }
         }
     }
@@ -157,29 +155,10 @@ global.pause_charge = global.current_hero != noone and global.current_hero.charg
     height = 20;
     width = 100;
 }
+
+x = owner.health_bar.x;
+y = owner.health_bar.y + owner.health_bar.height + 10;
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="76">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string></string>
           </argument>
         </arguments>
       </action>
