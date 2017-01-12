@@ -150,14 +150,18 @@ global.pause_charge = global.current_hero != noone and global.current_hero.charg
             <kind>1</kind>
             <string>if owner.lane == global.current_lane {
     height = 50;
-    width = 200;
+    width = floor(sprite_get_width(owner.sprite_index) * owner.image_xscale);
+    vertical = false;
+    x = owner.x;
+    y = owner.health_bar.y + owner.health_bar.height + 10;
 } else {
-    height = 20;
-    width = 100;
+    height = floor(sprite_get_height(owner.sprite_index) * owner.image_yscale);
+    width = 10;
+    vertical = true;
+    x = owner.health_bar.x + owner.health_bar.width + 10;
+    y = owner.y;
 }
 
-x = owner.health_bar.x;
-y = owner.health_bar.y + owner.health_bar.height + 10;
 </string>
           </argument>
         </arguments>

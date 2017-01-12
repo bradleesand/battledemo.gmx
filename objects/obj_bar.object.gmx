@@ -153,6 +153,30 @@
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>vertical</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>false</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="64">
       <action>
@@ -172,11 +196,15 @@
           <argument>
             <kind>1</kind>
             <string>draw_set_colour(c_black);
-draw_rectangle(x-1, y-1, x+width+1, y+height+1, true);
+draw_rectangle(x, y, x+width, y+height, true);
 draw_set_colour(bg_color);
-draw_rectangle(x, y, x+width, y+height, false);
+draw_rectangle(x+1, y+1, x+width-1, y+height-1, false);
 draw_set_colour(fg_color);
-draw_rectangle(x, y, x+(width*value/max_value), y+height, false);
+if vertical {
+    draw_rectangle(x+1, y-1+height-(height-1)*value/max_value, x-1+width, y-1+height, false);
+} else {
+    draw_rectangle(x+1, y+1, x-1+(width-1)*value/max_value, y-1+height, false);
+}
 </string>
           </argument>
         </arguments>

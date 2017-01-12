@@ -67,19 +67,20 @@
             <kind>1</kind>
             <string>if owner.lane == global.current_lane {
     height = 50;
-    width = 200;
-    x = owner.x + 10;
-    y = owner.y + floor(sprite_get_height(owner.sprite_index) * 0.5) + 10;
+    width = floor(sprite_get_width(owner.sprite_index) * owner.image_xscale);
+    vertical = false;
+    x = owner.x;
+    y = owner.y + floor(sprite_get_height(owner.sprite_index) * owner.image_yscale) + 10;
 } else {
-    height = 20;
-    width = 100;
+    height = floor(sprite_get_height(owner.sprite_index) * owner.image_yscale);
+    width = 10;
+    vertical = true;
     if owner.object_index == obj_hero {
-        x = owner.x + floor(sprite_get_width(owner.sprite_index) * 0.25) + 10;
-        y = owner.y + 10;
+        x = owner.x + floor(sprite_get_width(owner.sprite_index) * owner.image_xscale) + 10;
     } else {
         x = owner.x - width - 10;
-        y = owner.y + 10;
     }
+    y = owner.y;
 }
 </string>
           </argument>
