@@ -53,7 +53,7 @@ mpos = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.current_hero == noone or global.current_hero.charge_bar.value &lt; global.current_hero.charge_bar.max_value {
+            <string>if global.state == 'setup' or global.current_hero == noone or global.current_hero.charge_bar.value &lt; global.current_hero.charge_bar.max_value {
     visible = false;
 } else {
     visible = true;

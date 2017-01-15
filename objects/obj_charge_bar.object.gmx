@@ -113,7 +113,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if not global.pause_charge {
+            <string>if global.state == 'setup' exit;
+
+if not global.pause_charge {
     if value &lt; max_value {
         value += delta;
         if value &gt;= max_value {
@@ -148,7 +150,7 @@ global.pause_charge = global.current_hero != noone and global.current_hero.charg
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if owner.lane == global.current_lane {
+            <string>if owner == global.current_hero {
     height = 50;
     width = floor(sprite_get_width(owner.sprite_index) * owner.image_xscale);
     vertical = false;
@@ -162,6 +164,29 @@ global.pause_charge = global.current_hero != noone and global.current_hero.charg
     y = owner.y;
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if global.state != 'setup' event_inherited();
 </string>
           </argument>
         </arguments>

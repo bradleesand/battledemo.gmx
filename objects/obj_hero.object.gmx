@@ -8,6 +8,44 @@
   <parentName>obj_character</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>self.charge_bar = instance_create(0, 0, obj_charge_bar);
+charge_bar.owner = self;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="10">
       <action>
         <libid>1</libid>
@@ -48,18 +86,20 @@
             <string>var index = ds_list_find_index(lane.heroes, self);
 var scale;
 
-if (lane == global.current_lane) {
+if (global.current_hero == self) {
     scale = 0.5;
+    
+    x = 0;
+    y = background_y[lane.index];
 } else {
     scale = 0.25;
+    
+    x = sprite_get_width(sprite_index) * scale * index;
+    y = background_y[lane.index] + background_height[lane.index] - sprite_get_height(sprite_index) * scale;
 }
-
-var scaled_width = sprite_get_width(sprite_index) * scale;
 
 image_xscale = scale;
 image_yscale = scale;
-x = scaled_width * index;
-y = background_y[lane.index];
 
 with (health_bar) {
     event_user(0);

@@ -52,6 +52,13 @@
     <script>scripts\scr_init_battle.gml</script>
     <script>scripts\scr_select_lane.gml</script>
     <script>scripts\scr_select_hero.gml</script>
+    <script>scripts\scr_input_battle.gml</script>
+    <script>scripts\scr_input_move_hero.gml</script>
+    <script>scripts\scr_input_setup.gml</script>
+    <script>scripts\scr_move_hero.gml</script>
+    <script>scripts\scr_spawn_hero.gml</script>
+    <script>scripts\scr_start_battle.gml</script>
+    <script>scripts\scr_render.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_commands_menu</font>
