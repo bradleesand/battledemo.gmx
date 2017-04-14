@@ -47,6 +47,30 @@
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>vertical</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>true</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="7" enumb="10">
       <action>
@@ -65,23 +89,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if owner == global.current_hero {
-    height = 50;
-    width = floor(sprite_get_width(owner.sprite_index) * owner.image_xscale);
-    vertical = false;
-    x = owner.x;
-    y = owner.y + floor(sprite_get_height(owner.sprite_index) * owner.image_yscale) + 10;
+            <string>height = floor(sprite_get_height(owner.sprite_index) * owner.image_yscale);
+    
+if owner == global.current_hero {
+    width = 20;
 } else {
-    height = floor(sprite_get_height(owner.sprite_index) * owner.image_yscale);
     width = 10;
-    vertical = true;
-    if owner.object_index == obj_hero {
-        x = owner.x + floor(sprite_get_width(owner.sprite_index) * owner.image_xscale) + 10;
-    } else {
-        x = owner.x - width - 10;
-    }
-    y = owner.y;
 }
+
+if owner.object_index == obj_hero {
+    x = owner.x + floor(sprite_get_width(owner.sprite_index) * owner.image_xscale) + 10;
+} else {
+    x = owner.x - width - 10;
+}
+y = owner.y;
 </string>
           </argument>
         </arguments>

@@ -86,16 +86,23 @@ charge_bar.owner = self;
             <string>var index = ds_list_find_index(lane.heroes, self);
 var scale;
 
+var selected_index = ds_list_find_index(lane.heroes, global.current_hero);
+
 if (global.current_hero == self) {
     scale = 0.5;
     
     x = 0;
-    y = background_y[lane.index];
+    y = background_y[lane.index] + floor(sprite_get_height(sprite_index) * 0.25 * selected_index);
 } else {
     scale = 0.25;
     
-    x = sprite_get_width(sprite_index) * scale * index;
-    y = background_y[lane.index] + background_height[lane.index] - sprite_get_height(sprite_index) * scale;
+    var this_index = ds_list_find_index(lane.heroes, self);
+    
+    x = 0;
+    if selected_index != -1 and selected_index &lt; this_index
+        y = background_y[lane.index] + floor(sprite_get_height(sprite_index) * scale * (this_index - 1) + sprite_get_height(sprite_index) * 0.5);
+    else
+        y = background_y[lane.index] + floor(sprite_get_height(sprite_index) * scale * this_index);
 }
 
 image_xscale = scale;
