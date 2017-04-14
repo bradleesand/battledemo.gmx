@@ -73,10 +73,18 @@
     <object>objects\obj_lane</object>
     <object>objects\obj_character</object>
     <object>objects\obj_game_controlller</object>
+    <object>objects\obj_ctl_easy_mode</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_battle</room>
   </rooms>
+  <constants number="5">
+    <constant name="HERO_SCALE_SMALL">0.25</constant>
+    <constant name="HERO_SCALE_LARGE">0.5</constant>
+    <constant name="BAR_WIDTH_LARGE">20</constant>
+    <constant name="BAR_WIDTH_SMALL">10</constant>
+    <constant name="BAR_SPACER">10</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

@@ -46,7 +46,7 @@ lane.bg_mini = bg_red_mini;
 lane.heroes = ds_list_create();
 lane.enemies = ds_list_create();
 
-instance_create(floor(window_get_width()/2), 0, obj_commands_menu);
+instance_create(floor(sprite_get_width(ds_list_find_value(hero_sprites, 0)) * HERO_SCALE_LARGE + BAR_WIDTH_LARGE * 2 + BAR_SPACER * 3), 0, obj_commands_menu);
 
 for (var i = 0; i < instance_number(obj_lane); i++) {
     var lane = instance_find(obj_lane, i);

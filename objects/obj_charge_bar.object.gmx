@@ -144,7 +144,7 @@ if not global.pause_charge {
         value += delta;
         if value &gt;= max_value {
             value = max_value;
-            if owner.object_index == obj_hero {
+            if global.easy_mode and owner.object_index == obj_hero {
                 scr_select_hero(owner);
             }
         }
@@ -177,12 +177,12 @@ global.pause_charge = global.current_hero != noone and global.current_hero.charg
             <string>height = floor(sprite_get_height(owner.sprite_index) * owner.image_yscale);
 
 if owner == global.current_hero {
-    width = 20;
+    width = BAR_WIDTH_LARGE;
 } else {
-    width = 10;
+    width = BAR_WIDTH_SMALL;
 }
 
-x = owner.health_bar.x + owner.health_bar.width + 10;
+x = owner.health_bar.x + owner.health_bar.width + BAR_SPACER;
 y = owner.y;
 
 </string>

@@ -113,7 +113,7 @@ mpos = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>y = background_y[global.current_lane.index];
+            <string>y = global.current_hero.y;
 
 draw_self();
 
@@ -122,8 +122,7 @@ draw_set_valign(fa_middle);
 draw_set_font(fnt_commands_menu);
 draw_set_color(c_black);
 
-var m;
-for (m = 0; m &lt; array_length_1d(menu); m += 1)
+for (var m = 0; m &lt; array_length_1d(menu); m += 1)
 {
     draw_text(x + space, y + space + (m * space), string(menu[m]));
 }
